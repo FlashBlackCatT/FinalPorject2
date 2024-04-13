@@ -19,11 +19,17 @@ public class Target : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         targetRb = GetComponent<Rigidbody>();
+        LaunchObject();
 
+    }
+
+    //ABSTACTION
+    void LaunchObject()
+    {
         targetRb.AddForce(RandomSpeed(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
 
-        transform.position =RandomSpawnPos();
+        transform.position = RandomSpawnPos();
     }
 
     Vector3 RandomSpeed()
@@ -41,7 +47,7 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-Xpos, Xpos), Ypos);
     }
 
-    private void OnMouseDown()
+    public virtual void OnMouseDown()
     {
         if (gameManager.isGameActive == true)
         {

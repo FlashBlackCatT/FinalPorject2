@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //INCAPSULATION
     [SerializeField] List<GameObject> targets;
     public bool isGameActive;
     private float _spawnRate = 1.5f;
